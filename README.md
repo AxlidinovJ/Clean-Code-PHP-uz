@@ -1066,12 +1066,12 @@ class Cessna implements Airplane
 
 **[⬆ back to top](#table-of-contents)**
 
-### Avoid type-checking (part 1)
+### Turni tekshirishdan saqlaning (1-qism)
 
-PHP is untyped, which means your functions can take any type of argument.
-Sometimes you are bitten by this freedom and it becomes tempting to do
-type-checking in your functions. There are many ways to avoid having to do this.
-The first thing to consider is consistent APIs.
+PHP yozilmagan, bu sizning funksiyalaringiz har qanday turdagi argumentlarni qabul qilishi mumkinligini anglatadi.
+Ba'zida bu erkinlik sizni tishlab oladi va u qilish istagi paydo bo'ladi
+funksiyalaringizni turini tekshirish. Buni qilishdan qochishning ko'plab usullari mavjud.
+Ko'rib chiqilishi kerak bo'lgan birinchi narsa - izchil API.
 
 **Yomon:**
 
@@ -1097,17 +1097,16 @@ function travelToTexas(Vehicle $vehicle): void
 
 **[⬆ back to top](#table-of-contents)**
 
-### Avoid type-checking (part 2)
+### Turni tekshirishdan saqlaning (2-qism)
 
-If you are working with basic primitive values like strings, integers, and arrays,
-and you use PHP 7+ and you can't use polymorphism but you still feel the need to
-type-check, you should consider
+Agar siz satrlar, butun sonlar va massivlar kabi asosiy ibtidoiy qiymatlar bilan ishlayotgan bo'lsangiz,
+va siz PHP 7+ dan foydalanasiz va siz polimorfizmdan foydalana olmaysiz, lekin siz hali ham bunga ehtiyoj sezasiz turini tekshirish, siz o'ylab ko'rishingiz kerak
 [type declaration](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration)
-or strict mode. It provides you with static typing on top of standard PHP syntax.
-The problem with manually type-checking is that doing it will require so much
-extra verbiage that the faux "type-safety" you get doesn't make up for the lost
-readability. Keep your PHP clean, write good tests, and have good code reviews.
-Otherwise, do all of that but with PHP strict type declaration or strict mode.
+yoki qattiq rejim. U standart PHP sintaksisi ustiga statik yozishni ta'minlaydi.
+Turni qo'lda tekshirish bilan bog'liq muammo shundaki, uni bajarish juda ko'p narsani talab qiladi
+qo'shimcha so'zlar siz olgan soxta "turi-xavfsizlik" yo'qolgan o'rnini bosmaydi
+o'qish qobiliyati. PHP-ni toza tuting, yaxshi testlar yozing va yaxshi kod sharhlariga ega bo'ling.
+Aks holda, bularning barchasini PHP qattiq turdagi deklaratsiya yoki qat'iy rejim bilan bajaring.
 
 **Yomon:**
 
@@ -1133,11 +1132,11 @@ function combine(int $val1, int $val2): int
 
 **[⬆ back to top](#table-of-contents)**
 
-### Remove dead code
+### O'lik kodni olib tashlang
 
-Dead code is just as bad as duplicate code. There's no reason to keep it in
-your codebase. If it's not being called, get rid of it! It will still be safe
-in your version history if you still need it.
+O'lik kod ikki nusxadagi kod kabi yomon. Uni saqlash uchun hech qanday sabab yo'q
+sizning kod bazangiz. Agar u chaqirilmasa, undan qutuling! Bu hali ham xavfsiz bo'ladi
+Agar sizga hali ham kerak bo'lsa, versiyalar tarixida.
 
 **Yomon:**
 
@@ -1171,20 +1170,20 @@ inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 **[⬆ back to top](#table-of-contents)**
 
 
-## Objects and Data Structures
+## Ob'ektlar va ma'lumotlar tuzilmalari
 
-### Use object encapsulation
+### Obyekt inkapsulyatsiyasidan foydalaning
 
 In PHP you can set `public`, `protected` and `private` keywords for methods.
 Using it, you can control properties modification on an object.
 
-* When you want to do more beyond getting an object property, you don't have
-to look up and change every accessor in your codebase.
-* Makes adding validation simple when doing a `set`.
-* Encapsulates the internal representation.
-* Easy to add logging and error handling when getting and setting.
-* Inheriting this class, you can override default functionality.
-* You can lazy load your object's properties, let's say getting it from a
+* Ob'ekt xususiyatini olishdan tashqari ko'proq narsani qilishni xohlasangiz, sizda yo'q
+kod bazangizdagi har bir aksessuarni qidirish va o'zgartirish uchun.
+* “To‘plam”ni bajarishda tekshirishni qo‘shishni osonlashtiradi.
+* Ichki vakillikni qamrab oladi.
+* Qabul qilish va sozlashda jurnalni qo'shish va xatolarni boshqarish oson.
+* Ushbu sinfni meros qilib olgan holda siz standart funksiyani bekor qilishingiz mumkin.
+* Ob'ektingizning xususiyatlarini dangasa yuklashingiz mumkin, aytaylik, uni a dan oling
 server.
 
 Additionally, this is part of [Open/Closed](#openclosed-principle-ocp) principle.
@@ -1248,9 +1247,9 @@ $balance = $bankAccount->getBalance();
 
 ### Make objects have private/protected members
 
-* `public` methods and properties are most dangerous for changes, because some outside code may easily rely on them and you can't control what code relies on them. **Modifications in class are dangerous for all users of class.**
-* `protected` modifier are as dangerous as public, because they are available in scope of any child class. This effectively means that difference between public and protected is only in access mechanism, but encapsulation guarantee remains the same. **Modifications in class are dangerous for all descendant classes.**
-* `private` modifier guarantees that code is **dangerous to modify only in boundaries of single class** (you are safe for modifications and you won't have [Jenga effect](http://www.urbandictionary.com/define.php?term=Jengaphobia&defid=2494196)).
+* `public` usullar va xususiyatlar o'zgarishlar uchun eng xavflidir, chunki ba'zi tashqi kodlar ularga osongina tayanishi mumkin va siz ularga qanday kod tayanishini nazorat qila olmaysiz. **Sinfdagi o‘zgartirishlar sinfning barcha foydalanuvchilari uchun xavflidir.**
+* `protected` modifikatorlar ommaviy kabi xavflidir, chunki ular har qanday bolalar sinfi doirasida mavjud. Bu shuni anglatadiki, ommaviy va himoyalangan o'rtasidagi farq faqat kirish mexanizmida, lekin inkapsulyatsiya kafolati bir xil bo'lib qoladi. **Sinfdagi o‘zgarishlar barcha avlod sinflari uchun xavflidir.**
+* `private` modifikator kodni **faqat bitta sinf chegaralarida o'zgartirish xavfli ekanligini kafolatlaydi** (siz o'zgartirishlar uchun xavfsizsiz va sizda [Jenga effekti](http://www.urbandictionary.com/define.php?term=Jengaphobia&defid=2494196) bo'lmaydi).
 
 Therefore, use `private` by default and `public/protected` when you need to provide access for external classes.
 
