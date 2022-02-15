@@ -1,10 +1,10 @@
-# Clean Code PHP
+# Clean Code PHP - uz
 
 ## Table of Contents
 
-  1. [Introduction](#introduction)
-  2. [Variables](#variables)
-     * [Use meaningful and pronounceable variable names](#use-meaningful-and-pronounceable-variable-names)
+  1. [Kirish](#introduction)
+  2. [Oʻzgaruvchilar](#variables)
+     * [Ma'noli va talaffuz qilinadigan o'zgaruvchilar nomlaridan foydalaning](#use-meaningful-and-pronounceable-variable-names)
      * [Use the same vocabulary for the same type of variable](#use-the-same-vocabulary-for-the-same-type-of-variable)
      * [Use searchable names (part 1)](#use-searchable-names-part-1)
      * [Use searchable names (part 2)](#use-searchable-names-part-2)
