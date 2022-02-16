@@ -7,45 +7,45 @@
      * [Ma'noli va talaffuz qilinadigan o'zgaruvchilar nomlaridan foydalaning](#use-meaningful-and-pronounceable-variable-names)
      * [Xuddi shu turdagi o'zgaruvchilar uchun bir xil lug'atdan foydalaning](#use-the-same-vocabulary-for-the-same-type-of-variable)
      * [Qidiriladigan nomlardan foydalaning (1-qism)](#use-searchable-names-part-1)
-     * [Use searchable names (part 2)](#use-searchable-names-part-2)
-     * [Use explanatory variables](#use-explanatory-variables)
-     * [Avoid nesting too deeply and return early (part 1)](#avoid-nesting-too-deeply-and-return-early-part-1)
-     * [Avoid nesting too deeply and return early (part 2)](#avoid-nesting-too-deeply-and-return-early-part-2)
-     * [Avoid Mental Mapping](#avoid-mental-mapping)
-     * [Don't add unneeded context](#dont-add-unneeded-context)
-  3. [Comparison](#comparison)
-     * [Use identical comparison](#use-identical-comparison)
-     * [Null coalescing operator](#null-coalescing-operator)
-  4. [Functions](#functions)
-     * [Use default arguments instead of short circuiting or conditionals](#use-default-arguments-instead-of-short-circuiting-or-conditionals)
-     * [Function arguments (2 or fewer ideally)](#function-arguments-2-or-fewer-ideally)
-     * [Function names should say what they do](#function-names-should-say-what-they-do)
-     * [Functions should only be one level of abstraction](#functions-should-only-be-one-level-of-abstraction)
-     * [Don't use flags as function parameters](#dont-use-flags-as-function-parameters)
-     * [Avoid Side Effects](#avoid-side-effects)
-     * [Don't write to global functions](#dont-write-to-global-functions)
-     * [Don't use a Singleton pattern](#dont-use-a-singleton-pattern)
-     * [Encapsulate conditionals](#encapsulate-conditionals)
-     * [Avoid negative conditionals](#avoid-negative-conditionals)
-     * [Avoid conditionals](#avoid-conditionals)
-     * [Avoid type-checking (part 1)](#avoid-type-checking-part-1)
-     * [Avoid type-checking (part 2)](#avoid-type-checking-part-2)
-     * [Remove dead code](#remove-dead-code)
-  5. [Objects and Data Structures](#objects-and-data-structures)
-     * [Use object encapsulation](#use-object-encapsulation)
-     * [Make objects have private/protected members](#make-objects-have-privateprotected-members)
-  6. [Classes](#classes)
-     * [Prefer composition over inheritance](#prefer-composition-over-inheritance)
-     * [Avoid fluent interfaces](#avoid-fluent-interfaces)
-     * [Prefer final classes](#prefer-final-classes)
+     * [Qidiriladigan nomlardan foydalaning (2-qism)](#use-searchable-names-part-2)
+     * [Tushuntiruvchi o'zgaruvchilardan foydalaning](#use-explanatory-variables)
+     * [Juda chuqur joylashdan saqlaning va erta qayting (1-qism)](#avoid-nesting-too-deeply-and-return-early-part-1)
+     * [Juda chuqur joylashdan saqlaning va erta qayting (2-qism)](#avoid-nesting-too-deeply-and-return-early-part-2)
+     * [Ruhiy xaritalashdan saqlaning](#avoid-mental-mapping)
+     * [Keraksiz kontekstni qo'shmang](#dont-add-unneeded-context)
+  3. [Taqqoslash](#comparison)
+     * [Bir xil taqqoslashdan foydalaning](#use-identical-comparison)
+     * [Null birlashtiruvchi operator](#null-coalescing-operator)
+  4. [Funksiyalar](#functions)
+     * [Qisqa tutashuv yoki shartli shartlar o'rniga standart argumentlardan foydalaning](#use-default-arguments-instead-of-short-circuiting-or-conditionals)
+     * [Funktsiya argumentlari (ideal holda 2 yoki undan kam)](#function-arguments-2-or-fewer-ideally)
+     * [Funktsiya nomlari nima qilishlarini ko'rsatishi kerak](#function-names-should-say-what-they-do)
+     * [Funktsiyalar faqat mavhumlikning bir darajasi bo'lishi kerak](#functions-should-only-be-one-level-of-abstraction)
+     * [Bayroqlarni funktsiya parametrlari sifatida ishlatmang](#dont-use-flags-as-function-parameters)
+     * [Nojo'ya ta'sirlardan qoching](#avoid-side-effects)
+     * [Global funktsiyalarga yozmang](#dont-write-to-global-functions)
+     * [Singleton naqshini ishlatmang](#dont-use-a-singleton-pattern)
+     * [Shartli gaplarni inkapsulyatsiya qilish](#encapsulate-conditionals)
+     * [Salbiy shartlardan saqlaning](#avoid-negative-conditionals)
+     * [Shartli shartlardan saqlaning](#avoid-conditionals)
+     * [Turni tekshirishdan saqlaning (1-qism)](#avoid-type-checking-part-1)
+     * [Turni tekshirishdan saqlaning (2-qism)](#avoid-type-checking-part-2)
+     * [O'lik kodni olib tashlang](#remove-dead-code)
+  5. [Ob'ektlar va ma'lumotlar tuzilmalari](#objects-and-data-structures)
+     * [Ob'ektni inkapsulyatsiya qilishdan foydalaning](#use-object-encapsulation)
+     * [Ob'ektlarni shaxsiy/himoyalangan a'zolarga ega qiling](#make-objects-have-privateprotected-members)
+  6. [Sinflar](#classes)
+     * [Merosdan ko'ra kompozitsiyani afzal ko'ring](#prefer-composition-over-inheritance)
+     * [Ravon interfeyslardan saqlaning](#avoid-fluent-interfaces)
+     * [Yakuniy darslarni afzal ko'ring](#prefer-final-classes)
   7. [SOLID](#solid)
-     * [Single Responsibility Principle (SRP)](#single-responsibility-principle-srp)
-     * [Open/Closed Principle (OCP)](#openclosed-principle-ocp)
-     * [Liskov Substitution Principle (LSP)](#liskov-substitution-principle-lsp)
-     * [Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
-     * [Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
-  8. [Don’t repeat yourself (DRY)](#dont-repeat-yourself-dry)
-  9. [Translations](#translations)
+     * [Yagona javobgarlik printsipi (SRP)](#single-responsibility-principle-srp)
+     * [Ochiq/yopiq printsip (OCP)](#openclosed-principle-ocp)
+     * [Liskov almashtirish printsipi (LSP)](#liskov-substitution-principle-lsp)
+     * [Interfeysni ajratish printsipi (ISP)](#interface-segregation-principle-isp)
+     * [Bog'liqlik inversiyasi printsipi (DIP)](#dependency-inversion-principle-dip)
+  8. [O'zingizni takrorlamang (DRY)](#dont-repeat-yourself-dry)
+  9. [Tarjimalar](#translations)
 
 ## Introduction
 
@@ -78,7 +78,7 @@ $ymdstr = $moment->format('y-m-d');
 $currentDate = $moment->format('y-m-d');
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Use the same vocabulary for the same type of variable
 
@@ -97,15 +97,14 @@ getUserProfile();
 getUser();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Use searchable names (part 1)
+### Qidiriladigan nomlardan foydalaning (1-qism)
 
-We will read more code than we will ever write. It's important that the code we do write is
-readable and searchable. By *not* naming variables that end up being meaningful for
-understanding our program, we hurt our readers.
-Make your names searchable.
-
+Biz yozganimizdan ko'ra ko'proq kodni o'qiymiz. Muhimi, biz yozadigan kod
+o'qish va qidirish mumkin. Ma'noli bo'lgan o'zgaruvchilarni * nomlash orqali
+dasturimizni tushunib, biz o'quvchilarimizga zarar yetkazamiz.
+Ismlaringizni qidirish mumkin bo'lsin.
 **Yomon:**
 
 ```php
@@ -164,7 +163,7 @@ if ($user->access & User::ACCESS_UPDATE) {
 $user->access ^= User::ACCESS_CREATE;
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Use explanatory variables
 
@@ -178,9 +177,9 @@ preg_match($cityZipCodeRegex, $address, $matches);
 saveCityZipCode($matches[1], $matches[2]);
 ```
 
-**Not bad:**
+**Yomon emas:**
 
-It's better, but we are still heavily dependent on regex.
+Bu yaxshiroq, lekin biz hali ham regexga juda bog'liqmiz.
 
 ```php
 $address = 'One Infinite Loop, Cupertino 95014';
@@ -193,22 +192,22 @@ saveCityZipCode($city, $zipCode);
 
 **Yaxshi:**
 
-Decrease dependence on regex by naming subpatterns.
+Pastki naqshlarni nomlash orqali regexga bog'liqlikni kamaytiring.
 
 ```php
-$address = 'One Infinite Loop, Cupertino 95014';
+$address = 'Bitta cheksiz pastadir, Cupertino 95014';
 $cityZipCodeRegex = '/^[^,]+,\s*(?<city>.+?)\s*(?<zipCode>\d{5})$/';
 preg_match($cityZipCodeRegex, $address, $matches);
 
 saveCityZipCode($matches['city'], $matches['zipCode']);
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Avoid nesting too deeply and return early (part 1)
+### Juda chuqur joylashdan saqlaning va erta qayting (1-qism)
 
-Too many if-else statements can make your code hard to follow. Explicit is better
-than implicit.
+Ko'p if-else iboralari kodingizga amal qilishni qiyinlashtirishi mumkin. Aniqroq
+yashirindan ko'ra.
 
 **Yomon:**
 
@@ -248,7 +247,7 @@ function isShopOpen(string $day): bool
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Avoid nesting too deeply and return early (part 2)
 
@@ -287,12 +286,12 @@ function fibonacci(int $n): int
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Avoid Mental Mapping
+### Ruhiy xaritalashdan saqlaning
 
-Don’t force the reader of your code to translate what the variable means.
-Explicit is better than implicit.
+Kod o'quvchini o'zgaruvchi nimani anglatishini tarjima qilishga majburlamang.
+Yopiqdan ko'ra ochiq-oydin.
 
 **Yomon:**
 
@@ -326,12 +325,12 @@ foreach ($locations as $location) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Don't add unneeded context
+### Keraksiz kontekstni qo'shmang
 
-If your class/object name tells you something, don't repeat that in your
-variable name.
+Agar sizning sinfingiz/ob'ekt nomi sizga biror narsa aytsa, buni o'zingizning sinfingizda takrorlamang
+o'zgaruvchan nomi.
 
 **Yomon:**
 
@@ -363,15 +362,15 @@ class Car
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ## Comparison
 
 ### Use [identical comparison](http://php.net/manual/en/language.operators.comparison.php)
 
-**Not good:**
+**Yaxshi emas:**
 
-The simple comparison will convert the string in an integer.
+Oddiy taqqoslash qatorni butun songa aylantiradi.
 
 ```php
 $a = '42';
@@ -400,7 +399,7 @@ if ($a !== $b) {
 
 The comparison `$a !== $b` returns `TRUE`.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Null coalescing operator
 
@@ -423,13 +422,13 @@ if (isset($_GET['name'])) {
 $name = $_GET['name'] ?? $_POST['name'] ?? 'nobody';
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
-## Functions
+## Funktsiyalar
 
-### Use default arguments instead of short circuiting or conditionals
+### Qisqa tutashuv yoki shartli shartlar o'rniga standart argumentlardan foydalaning
 
-**Not good:**
+**Yaxshi emas:**
 
 This is not good because `$breweryName` can be `NULL`.
 
@@ -463,7 +462,7 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.'): void
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Function arguments (2 or fewer ideally)
 
@@ -559,7 +558,7 @@ class Questionnaire
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Function names should say what they do
 
@@ -599,7 +598,7 @@ $message = new Email(...);
 $message->send();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Funksiyalar faqat mavhumlikning bir darajasi bo'lishi kerak
 
@@ -737,7 +736,7 @@ class BetterPHPAlternative
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Bayroqlarni funksiya parametrlari sifatida ishlatmang
 
@@ -772,7 +771,7 @@ function createTempFile(string $name): void
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Nojo'ya ta'sirlardan saqlaning
 
@@ -828,7 +827,7 @@ var_dump($newName);
 // ['Ryan', 'McDermott'];
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Global funksiyalarga yozmang
 
@@ -878,7 +877,7 @@ $configuration = new Configuration([
 
 And now you must use instance of `Configuration` in your application.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Don't use a Singleton pattern
 
@@ -939,7 +938,7 @@ $connection = new DBConnection($dsn);
 
 And now you must use instance of `DBConnection` in your application.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Encapsulate conditionals
 
@@ -959,7 +958,7 @@ if ($article->isPublished()) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Avoid negative conditionals
 
@@ -989,7 +988,7 @@ if (isDOMNodePresent($node)) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Avoid conditionals
 
@@ -1064,7 +1063,7 @@ class Cessna implements Airplane
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Turni tekshirishdan saqlaning (1-qism)
 
@@ -1095,7 +1094,7 @@ function travelToTexas(Vehicle $vehicle): void
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Turni tekshirishdan saqlaning (2-qism)
 
@@ -1130,7 +1129,7 @@ function combine(int $val1, int $val2): int
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### O'lik kodni olib tashlang
 
@@ -1167,7 +1166,7 @@ $request = requestModule($requestUrl);
 inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 
 ## Ob'ektlar va ma'lumotlar tuzilmalari
@@ -1243,7 +1242,7 @@ $bankAccount->withdraw($shoesPrice);
 $balance = $bankAccount->getBalance();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Make objects have private/protected members
 
@@ -1296,7 +1295,7 @@ $employee = new Employee('John Doe');
 echo 'Employee name: ' . $employee->getName();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ## Classes
 
@@ -1399,7 +1398,7 @@ class Employee
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Avoid fluent interfaces
 
@@ -1507,7 +1506,7 @@ $car->setModel('F-150');
 $car->dump();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Prefer final classes
 
@@ -1572,7 +1571,7 @@ final class Car implements Vehicle
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ## SOLID
 
@@ -1660,7 +1659,7 @@ class UserSettings
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Open/Closed Principle (OCP)
 
@@ -1774,7 +1773,7 @@ class HttpRequester
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Liskov Substitution Principle (LSP)
 
@@ -1903,7 +1902,7 @@ foreach ($shapes as $shape) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Interface Segregation Principle (ISP)
 
@@ -1994,7 +1993,7 @@ class RobotEmployee implements Workable
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Dependency Inversion Principle (DIP)
 
@@ -2086,7 +2085,7 @@ class Manager
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ## Don’t repeat yourself (DRY)
 
@@ -2170,7 +2169,7 @@ function showList(array $employees): void
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
 
 ## Translations
 
@@ -2204,4 +2203,4 @@ This is also available in other languages:
 * :jp: **Japanese:**
    * [hayato07/clean-code-php](https://github.com/hayato07/clean-code-php)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Tepaga qaytish](#table-of-contents)**
