@@ -265,7 +265,7 @@ function fibonacci(int $n)
         }
         return 0;
     }
-    return 'Not supported';
+    return 'Qo\'llab-quvvatlanmaydi';
 }
 ```
 
@@ -279,7 +279,7 @@ function fibonacci(int $n): int
     }
 
     if ($n >= 50) {
-        throw new Exception('Not supported');
+        throw new Exception('Qo\'llab-quvvatlanmaydi');
     }
 
     return fibonacci($n - 1) + fibonacci($n - 2);
@@ -363,10 +363,9 @@ class Car
 ```
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
+## Taqqoslash
 
-## Comparison
-
-### Use [identical comparison](http://php.net/manual/en/language.operators.comparison.php)
+### [bir xil taqqoslash] (http://php.net/manual/en/language.operators.comparison.php)dan foydalaning
 
 **Yaxshi emas:**
 
@@ -380,30 +379,29 @@ if ($a != $b) {
     // The expression will always pass
 }
 ```
-
-The comparison `$a != $b` returns `FALSE` but in fact it's `TRUE`!
-The string `42` is different than the integer `42`.
+Taqqoslash `$a != $b` `FALSE`ni qaytaradi, lekin aslida bu `TRUE`!
+`42` qatori `42` butun sonidan farq qiladi.
 
 **Yaxshi:**
 
-The identical comparison will compare type and value.
+Xuddi shunday taqqoslash turi va qiymatini taqqoslaydi.
 
 ```php
 $a = '42';
 $b = 42;
 
 if ($a !== $b) {
-    // The expression is verified
+    // ifoda tasdiqlandi
 }
 ```
 
-The comparison `$a !== $b` returns `TRUE`.
+`$a !== $b` taqqoslash `TRUE`ni qaytaradi.
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
 ### Null coalescing operator
 
-Null coalescing is a new operator [introduced in PHP 7](https://www.php.net/manual/en/migration70.new-features.php). The null coalescing operator `??` has been added as syntactic sugar for the common case of needing to use a ternary in conjunction with `isset()`. It returns its first operand if it exists and is not `null`; otherwise it returns its second operand.
+Null coalescing - bu yangi operator [PHP 7 da kiritilgan](https://www.php.net/manual/en/migration70.new-features.php). Nol birlashtiruvchi operator `??` `isset()` bilan birgalikda uchlikdan foydalanish zarurati uchun sintaktik shakar sifatida qo`shilgan. Agar u mavjud bo'lsa va "null" bo'lmasa, u o'zining birinchi operandini qaytaradi; aks holda u ikkinchi operandni qaytaradi.
 
 **Yomon:**
 
@@ -430,7 +428,7 @@ $name = $_GET['name'] ?? $_POST['name'] ?? 'nobody';
 
 **Yaxshi emas:**
 
-This is not good because `$breweryName` can be `NULL`.
+Bu yaxshi emas, chunki `$breweryName` `NULL` bo`lishi mumkin.
 
 ```php
 function createMicrobrewery($breweryName = 'Hipster Brew Co.'): void
@@ -438,10 +436,9 @@ function createMicrobrewery($breweryName = 'Hipster Brew Co.'): void
     // ...
 }
 ```
+**Yomon emas:**
 
-**Not bad:**
-
-This opinion is more understandable than the previous version, but it better controls the value of the variable.
+Bu fikr oldingi versiyadan ko'ra tushunarli, ammo u o'zgaruvchining qiymatini yaxshiroq nazorat qiladi.
 
 ```php
 function createMicrobrewery($name = null): void
@@ -453,7 +450,9 @@ function createMicrobrewery($name = null): void
 
 **Yaxshi:**
 
- You can use [type hinting](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration) and be sure that the `$breweryName` will not be `NULL`.
+
+
+ Siz [type hinting](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration) dan foydalanishingiz mumkin va `$breweryName` `NULL` bo'lmasligiga ishonch hosil qilishingiz mumkin.
 
 ```php
 function createMicrobrewery(string $breweryName = 'Hipster Brew Co.'): void
@@ -464,16 +463,16 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.'): void
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Function arguments (2 or fewer ideally)
+### Funktsiya argumentlari (ideal holda 2 yoki undan kam)
 
-Limiting the amount of function parameters is incredibly important because it makes
-testing your function easier. Having more than three leads to a combinatorial explosion
-where you have to test tons of different cases with each separate argument.
+Funktsiya parametrlarining miqdorini cheklash juda muhim, chunki u qiladi
+funktsiyangizni sinab ko'rish osonroq. Uchdan ortiq bo'lsa, kombinat portlashiga olib keladi
+bu erda har bir alohida argument bilan tonnalab turli holatlarni sinab ko'rishingiz kerak.
 
-Zero arguments is the ideal case. One or two arguments is ok, and three should be avoided.
-Anything more than that should be consolidated. Usually, if you have more than two
-arguments then your function is trying to do too much. In cases where it's not, most
-of the time a higher-level object will suffice as an argument.
+Nol argumentlar ideal holatdir. Bir yoki ikkita argument to'g'ri va uchtadan qochish kerak.
+Bundan ko'proq narsa birlashtirilishi kerak. Odatda, agar sizda ikkitadan ortiq bo'lsa
+argumentlar bo'lsa, sizning funktsiyangiz juda ko'p narsa qilishga harakat qilmoqda. Bunday bo'lmagan hollarda, ko'pchilik
+argument sifatida yuqori darajadagi ob'ekt etarli bo'ladi.
 
 **Yomon:**
 
