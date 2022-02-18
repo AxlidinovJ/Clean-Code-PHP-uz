@@ -2175,7 +2175,7 @@ function showList(array $employees): void
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-## Tarjimalar
+## translations
 
 Bu boshqa tillarda ham mavjud:
 
