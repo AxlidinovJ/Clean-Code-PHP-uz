@@ -575,7 +575,7 @@ class Email
 }
 
 $message = new Email(...);
-// What is this? A handle for the message? Are we writing to a file now?
+// Bu nima? Xabar uchun tutqich? Endi biz faylga yozyapmizmi?
 $message->handle();
 ```
 
@@ -593,7 +593,7 @@ class Email
 }
 
 $message = new Email(...);
-// Clear and obvious
+// Aniq va ravshan
 $message->send();
 ```
 
@@ -677,7 +677,7 @@ function parseBetterPHPAlternative(string $code): void
 
 **Yaxshi:**
 
-The best solution is move out the dependencies of `parseBetterPHPAlternative()` function.
+Eng yaxshi yechim `parseBetterPHPAalternative()` funksiyasiga bog‘liqliklarni olib tashlashdir.
 
 ```php
 class Tokenizer
@@ -791,8 +791,9 @@ boshqa dasturchilarning aksariyatiga qaraganda.
 **Yomon:**
 
 ```php
-// Global variable referenced by following function.
-// If we had another function that used this name, now it'd be an array and it could break it.
+// Global o'zgaruvchiga quyidagi funktsiya tomonidan havola qilingan.
+// Agar bizda bu nomdan foydalanadigan boshqa funksiya bo'lsa, endi u massiv bo'lardi va uni buzishi mumkin edi.
+
 $name = 'Ryan McDermott';
 
 function splitIntoFirstAndLastName(): void
@@ -866,7 +867,7 @@ class Configuration
 }
 ```
 
-Load configuration and create instance of `Configuration` class
+Konfiguratsiyani yuklang va "Configuration" klassining namunasini yarating
 
 ```php
 $configuration = new Configuration([
@@ -880,13 +881,13 @@ And now you must use instance of `Configuration` in your application.
 
 ### Don't use a Singleton pattern
 
-Singleton is an [anti-pattern](https://en.wikipedia.org/wiki/Singleton_pattern). Paraphrased from Brian Button:
- 1. They are generally used as a **global instance**, why is that so bad? Because **you hide the dependencies** of your application in your code, instead of exposing them through the interfaces. Making something global to avoid passing it around is a [code smell](https://en.wikipedia.org/wiki/Code_smell).
- 2. They violate the [single responsibility principle](#single-responsibility-principle-srp): by virtue of the fact that **they control their own creation and lifecycle**.
- 3. They inherently cause code to be tightly [coupled](https://en.wikipedia.org/wiki/Coupling_%28computer_programming%29). This makes faking them out under **test rather difficult** in many cases.
- 4. They carry state around for the lifetime of the application. Another hit to testing since **you can end up with a situation where tests need to be ordered** which is a big no for unit tests. Why? Because each unit test should be independent from the other.
+Singleton - bu [naqshga qarshi](https://en.wikipedia.org/wiki/Singleton_pattern). Brayan Buttondan tarjima qilingan:
+  1. Ular odatda **global misol** sifatida ishlatiladi, nega bu juda yomon? Chunki **siz ilovangizning bog'liqliklarini** interfeyslar orqali ochish o'rniga, kodingizda yashirasiz. Biror narsani o'tkazib yubormaslik uchun uni global qilish [kod hidi](https://en.wikipedia.org/wiki/Code_smell).
+ 2. Ular [yagona javobgarlik printsipini](#single-responsibility-principle-srp) buzadilar: **o'z yaratilishi va hayot aylanishini** o'zlari nazorat qilishlari sababli.
+ 3. Ular tabiatan kodni mahkam bog'lashga olib keladi [juft](https://en.wikipedia.org/wiki/Coupling_%28computer_programming%29). Bu ko'p hollarda ularni **sinov ostida soxtalashtirishni qiyinlashtiradi**.
+  4. Ular ilovaning butun umri davomida holatni olib yuradi. Sinov uchun yana bir zarba, chunki **siz sinovlarga buyurtma berish kerak bo'lgan vaziyatga duch kelishingiz mumkin** bu birlik testlari uchun katta yo'q. Nega? Chunki har bir birlik testi boshqasidan mustaqil bo'lishi kerak.
 
-There is also very good thoughts by [Misko Hevery](http://misko.hevery.com/about/) about the [root of problem](http://misko.hevery.com/2008/08/25/root-cause-of-singletons/).
+[Misko Hevery](http://misko.hevery.com/about/) tomonidan [muammoning ildizi](http://misko.hevery.com/2008/08/25/root-cause-of-singletons/) haqida juda yaxshi fikrlar ham bor..
 
 **Yomon:**
 
@@ -929,17 +930,17 @@ class DBConnection
 }
 ```
 
-Create instance of `DBConnection` class and configure it with [DSN](http://php.net/manual/en/pdo.construct.php#refsect1-pdo.construct-parameters).
+`DBConnection` klassi namunasini yarating va uni [DSN](http://php.net/manual/en/pdo.construct.php#refsect1-pdo.construct-parameters) bilan sozlang.
 
 ```php
 $connection = new DBConnection($dsn);
 ```
 
-And now you must use instance of `DBConnection` in your application.
+Endi siz ilovangizda `DBConnection` misolidan foydalanishingiz kerak.
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Encapsulate conditionals
+### Shartli gaplarni inkapsulyatsiya qiling
 
 **Yomon:**
 
@@ -959,7 +960,7 @@ if ($article->isPublished()) {
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Avoid negative conditionals
+### Salbiy shartlardan saqlaning
 
 **Yomon:**
 
@@ -989,16 +990,17 @@ if (isDOMNodePresent($node)) {
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Avoid conditionals
+### Shartli so'zlardan saqlaning
 
-This seems like an impossible task. Upon first hearing this, most people say,
-"how am I supposed to do anything without an `if` statement?" The answer is that
-you can use polymorphism to achieve the same task in many cases. The second
-question is usually, "well that's great but why would I want to do that?" The
-answer is a previous clean code concept we learned: a function should only do
-one thing. When you have classes and functions that have `if` statements, you
-are telling your user that your function does more than one thing. Remember,
-just do one thing.
+Bu imkonsiz vazifaga o'xshaydi. Buni birinchi eshitgan ko'pchilik shunday deyishadi:
+"Qanday qilib men "if" iborasisiz biror narsa qilishim kerak?" Javob shunday
+ko'p hollarda bir xil vazifaga erishish uchun polimorfizmdan foydalanishingiz mumkin. Ikkinchisi
+Odatda savol: "Bu juda zo'r, lekin nega men buni qilishni xohlayman?" The
+javob - bu biz o'rgangan oldingi toza kod tushunchasi: funktsiya faqat bajarishi kerak
+bir narsa. Agar sizda "if" iboralari mavjud bo'lgan sinflar va funktsiyalar mavjud bo'lsa, siz
+foydalanuvchiga sizning funksiyangiz bir nechta narsani qilishini aytmoqda. Eslab qoling,
+faqat bitta narsani qiling.
+
 
 **Yomon:**
 
@@ -1172,8 +1174,8 @@ inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 
 ### Obyekt inkapsulyatsiyasidan foydalaning
 
-In PHP you can set `public`, `protected` and `private` keywords for methods.
-Using it, you can control properties modification on an object.
+PHPda usullar uchun `public`, `protected` va `private` kalit soʻzlarni oʻrnatishingiz mumkin.
+Undan foydalanib, siz ob'ektning xususiyatlarini o'zgartirishni boshqarishingiz mumkin.
 
 * Ob'ekt xususiyatini olishdan tashqari ko'proq narsani qilishni xohlasangiz, sizda yo'q
 kod bazangizdagi har bir aksessuarni qidirish va o'zgartirish uchun.
@@ -1184,7 +1186,7 @@ kod bazangizdagi har bir aksessuarni qidirish va o'zgartirish uchun.
 * Ob'ektingizning xususiyatlarini dangasa yuklashingiz mumkin, aytaylik, uni a dan oling
 server.
 
-Additionally, this is part of [Open/Closed](#openclosed-principle-ocp) principle.
+Bundan tashqari, bu [Open/Closed](#openclosed-principle-ocp) tamoyilining bir qismidir.
 
 **Yomon:**
 
@@ -1249,9 +1251,11 @@ $balance = $bankAccount->getBalance();
 * `protected` modifikatorlar ommaviy kabi xavflidir, chunki ular har qanday bolalar sinfi doirasida mavjud. Bu shuni anglatadiki, ommaviy va himoyalangan o'rtasidagi farq faqat kirish mexanizmida, lekin inkapsulyatsiya kafolati bir xil bo'lib qoladi. **Sinfdagi o‘zgarishlar barcha avlod sinflari uchun xavflidir.**
 * `private` modifikator kodni **faqat bitta sinf chegaralarida o'zgartirish xavfli ekanligini kafolatlaydi** (siz o'zgartirishlar uchun xavfsizsiz va sizda [Jenga effekti](http://www.urbandictionary.com/define.php?term=Jengaphobia&defid=2494196) bo'lmaydi).
 
-Therefore, use `private` by default and `public/protected` when you need to provide access for external classes.
+Shuning uchun, tashqi sinflarga kirishni ta'minlash uchun sukut bo'yicha `private` va `public/protected` dan foydalaning.
 
 For more information you can read the [blog post](http://fabien.potencier.org/pragmatism-over-theory-protected-vs-private.html) on this topic written by [Fabien Potencier](https://github.com/fabpot).
+
+Qo'shimcha ma'lumot olish uchun siz [Fabien Potencier](https://github.com/fabpot) tomonidan yozilgan ushbu mavzu bo'yicha [blog postini](http://fabien.potencier.org/pragmatism-over-theory-protected-vs-private.html) o'qishingiz mumkin .
 
 **Yomon:**
 
@@ -1267,7 +1271,8 @@ class Employee
 }
 
 $employee = new Employee('John Doe');
-// Employee name: John Doe
+// Xodimning ismi: Jon Doe
+
 echo 'Employee name: ' . $employee->name;
 ```
 
@@ -1296,27 +1301,26 @@ echo 'Employee name: ' . $employee->getName();
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-## Classes
+## Darslar
 
-### Prefer composition over inheritance
+### Merosdan ko'ra kompozitsiyani afzal ko'ring
 
-As stated famously in [*Design Patterns*](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four,
-you should prefer composition over inheritance where you can. There are lots of
-good reasons to use inheritance and lots of good reasons to use composition.
-The main point for this maxim is that if your mind instinctively goes for
-inheritance, try to think if composition could model your problem better. In some
-cases it can.
+Gang of Four tomonidan [*Dizayn Naqshlari*](https://en.wikipedia.org/wiki/Design_Patterns) da mashhur bo'lganidek,
+iloji bo'lsa, merosdan ko'ra kompozitsiyani afzal ko'rishingiz kerak. Ko'p bor
+merosdan foydalanish uchun yaxshi sabablar va kompozitsiyadan foydalanish uchun juda ko'p yaxshi sabablar.
+Ushbu maksimning asosiy nuqtasi shundaki, agar sizning fikringiz instinktiv ravishda harakat qilsa
+meros, kompozitsiya muammoingizni yaxshiroq modellashtirishi mumkinmi, deb o'ylashga harakat qiling. Ba'zilarida
+mumkin bo'lgan hollarda.
 
-You might be wondering then, "when should I use inheritance?" It
-depends on your problem at hand, but this is a decent list of when inheritance
-makes more sense than composition:
+O'shanda siz "qachon merosdan foydalanishim kerak?" deb hayron bo'lishingiz mumkin. Bu
+Sizning muammoingizga bog'liq, ammo bu meros qachon bo'lganining munosib ro'yxati
+kompozitsiyadan ko'ra ko'proq ma'noga ega:
 
-1. Your inheritance represents an "is-a" relationship and not a "has-a"
-relationship (Human->Animal vs. User->UserDetails).
-2. You can reuse code from the base classes (Humans can move like all animals).
-3. You want to make global changes to derived classes by changing a base class.
-(Change the caloric expenditure of all animals when they move).
-
+1. Merosingiz "has-a" emas, balki "is-a" munosabatlarini ifodalaydi
+munosabatlari (Odam->Hayvon va boshqalar. Foydalanuvchi->UserDetails).
+2. Siz asosiy sinflardan kodni qayta ishlatishingiz mumkin (odamlar barcha hayvonlar kabi harakatlanishi mumkin).
+3. Asosiy sinfni o'zgartirish orqali olingan sinflarga global o'zgarishlar kiritmoqchisiz.
+(Hamma hayvonlar harakatlanayotganda kaloriya sarfini o'zgartiring).
 **Yomon:**
 
 ```php
@@ -1335,8 +1339,8 @@ class Employee
     // ...
 }
 
-// Bad because Employees "have" tax data.
-// EmployeeTaxData is not a type of Employee
+// Yomon, chunki xodimlar soliq ma'lumotlariga ega.
+// EmployeeTaxData xodimning bir turi emas
 
 class EmployeeTaxData extends Employee
 {
