@@ -1403,24 +1403,24 @@ class Employee
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Avoid fluent interfaces
+### Ravon interfeyslardan saqlaning
 
-A [Fluent interface](https://en.wikipedia.org/wiki/Fluent_interface) is an object
-oriented API that aims to improve the readability of the source code by using
-[Method chaining](https://en.wikipedia.org/wiki/Method_chaining).
+[Fluent interfeysi](https://en.wikipedia.org/wiki/Fluent_interface) ob'ektdir.
+foydalanish orqali manba kodining o'qilishini yaxshilashga qaratilgan yo'naltirilgan API
+[Usul zanjiri](https://en.wikipedia.org/wiki/Method_chaining).
 
-While there can be some contexts, frequently builder objects, where this
-pattern reduces the verbosity of the code (for example the [PHPUnit Mock Builder](https://phpunit.de/manual/current/en/test-doubles.html)
-or the [Doctrine Query Builder](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/query-builder.html)),
-more often it comes at some costs:
+Ba'zi kontekstlar bo'lishi mumkin bo'lsa-da, tez-tez quruvchi ob'ektlar, bu erda
+naqsh kodning aniqligini kamaytiradi (masalan, [PHPUnit Mock Builder](https://phpunit.de/manual/current/en/test-doubles.html) yoki [Doctrine Query Builder](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/query-builder.html)), ko'pincha bu ba'zi xarajatlarga to'g'ri keladi:
 
-1. Breaks [Encapsulation](https://en.wikipedia.org/wiki/Encapsulation_%28object-oriented_programming%29).
-2. Breaks [Decorators](https://en.wikipedia.org/wiki/Decorator_pattern).
-3. Is harder to [mock](https://en.wikipedia.org/wiki/Mock_object) in a test suite.
-4. Makes diffs of commits harder to read.
 
-For more information you can read the full [blog post](https://ocramius.github.io/blog/fluent-interfaces-are-evil/)
-on this topic written by [Marco Pivetta](https://github.com/Ocramius).
+1. [Encapsulation](https://en.wikipedia.org/wiki/Encapsulation_%28object-oriented_programming%29) buziladi.
+2. Tanaffuslar [Dekoratorlar](https://en.wikipedia.org/wiki/Decorator_pattern).
+3. Test to'plamida [masxara](https://en.wikipedia.org/wiki/Mock_object) qiyinroq.
+4. Farqlarni o‘qishni qiyinlashtiradi.
+
+Qo'shimcha ma'lumot olish uchun to'liq [blog postini](https://ocramius.github.io/blog/fluent-interfaces-are-evil/) o'qishingiz mumkin.
+bu mavzuda [Marko Pivetta](https://github.com/Ocramius) tomonidan yozilgan.
+
 
 **Yomon:**
 
@@ -1437,7 +1437,7 @@ class Car
     {
         $this->make = $make;
 
-        // NOTE: Returning this for chaining
+       // QAYD: Buni zanjirband qilish uchun qaytaring
         return $this;
     }
 
@@ -1445,7 +1445,7 @@ class Car
     {
         $this->model = $model;
 
-        // NOTE: Returning this for chaining
+       // QAYD: Buni zanjirband qilish uchun qaytaring
         return $this;
     }
 
@@ -1453,7 +1453,7 @@ class Car
     {
         $this->color = $color;
 
-        // NOTE: Returning this for chaining
+       // QAYD: Buni zanjirband qilish uchun qaytaring
         return $this;
     }
 
@@ -1511,19 +1511,19 @@ $car->dump();
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Prefer final classes
+### Yakuniy darslarni afzal ko'ring
 
-The `final` keyword should be used whenever possible:
+"Yakuniy" kalit so'zidan iloji boricha foydalanish kerak:
 
-1. It prevents an uncontrolled inheritance chain.
-2. It encourages [composition](#prefer-composition-over-inheritance).
-3. It encourages the [Single Responsibility Principle](#single-responsibility-principle-srp).
-4. It encourages developers to use your public methods instead of extending the class to get access to protected ones.
-5. It allows you to change your code without breaking applications that use your class.
+1. Nazoratsiz meros zanjirining oldini oladi.
+2. [kompozitsiyani] (#prefer-composition-over-meros) rag'batlantiradi.
+3. U [Yagona javobgarlik printsipi](#single-responsibility-principle-srp)ni rag'batlantiradi.
+4. U ishlab chiquvchilarni himoyalanganlarga kirish uchun sinfni kengaytirish o'rniga sizning umumiy usullaringizdan foydalanishga undaydi.
+5. Bu sizning sinfingizdan foydalanadigan ilovalarni buzmasdan kodingizni o'zgartirishga imkon beradi.
 
-The only condition is that your class should implement an interface and no other public methods are defined.
+Yagona shart shundaki, sizning sinfingiz interfeysni amalga oshirishi kerak va boshqa umumiy usullar aniqlanmagan.
 
-For more informations you can read [the blog post](https://ocramius.github.io/blog/when-to-declare-classes-final/) on this topic written by [Marco Pivetta (Ocramius)](https://ocramius.github.io/).
+Qo'shimcha ma'lumot olish uchun siz [Marko Pivetta Ocramius](https://ocramius.github.io/) tomonidan yozilgan [blog postini](https://ocramius.github.io/blog/when-to-declare-classes-final/) o'qishingiz mumkin .
 
 **Yomon:**
 
@@ -1578,24 +1578,24 @@ final class Car implements Vehicle
 
 ## SOLID
 
-**SOLID** is the mnemonic acronym introduced by Michael Feathers for the first five principles named by Robert Martin, which meant five basic principles of object-oriented programming and design.
+**SOLID** - bu Robert Martin tomonidan atalgan birinchi besh tamoyil uchun Maykl Feathers tomonidan kiritilgan mnemonik qisqartma bo'lib, u ob'ektga yo'naltirilgan dasturlash va dizaynning beshta asosiy tamoyilini bildiradi.
 
- * [S: Single Responsibility Principle (SRP)](#single-responsibility-principle-srp)
- * [O: Open/Closed Principle (OCP)](#openclosed-principle-ocp)
- * [L: Liskov Substitution Principle (LSP)](#liskov-substitution-principle-lsp)
- * [I: Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
- * [D: Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
+  * [S: Yagona javobgarlik printsipi (SRP)](#single-responsibility-principle-srp)
+  * [O: ochiq/yopiq printsip (OCP)](#openclosed-printsip-ocp)
+  * [L: Liskov almashtirish printsipi (LSP)](#liskov-substitution-principle-lsp)
+  * [I: Interfeysni ajratish printsipi (ISP)](#interfeys-segregatsiya-prinsipi-isp)
+  * [D: Bog'liqlik inversiyasi printsipi (DIP)](#dependency-inversion-principle-dip)
 
-### Single Responsibility Principle (SRP)
+### Yagona javobgarlik printsipi (SRP)
 
-As stated in Clean Code, "There should never be more than one reason for a class
-to change". It's tempting to jam-pack a class with a lot of functionality, like
-when you can only take one suitcase on your flight. The issue with this is
-that your class won't be conceptually cohesive and it will give it many reasons
-to change. Minimizing the amount of times you need to change a class is important.
-It's important because if too much functionality is in one class and you modify a piece of it,
-it can be difficult to understand how that will affect other dependent modules in
-your codebase.
+Toza Kodekda aytilganidek, "Sinf uchun hech qachon bir nechta sabab bo'lmasligi kerak
+o'zgartirish". Bu kabi ko'plab funksiyalarga ega bo'lgan sinfni jamlash vasvasasi
+parvozingizda faqat bitta chamadon olishingiz mumkin bo'lganda. Bu bilan bog'liq masala
+Sizning sinfingiz kontseptual jihatdan birlashtirilgan bo'lmaydi va bu unga ko'p sabablarni beradi
+tuzatmoq. Sinfni o'zgartirishingiz kerak bo'lgan vaqtni minimallashtirish muhimdir.
+Bu juda muhim, chunki bitta sinfda juda ko'p funksiya mavjud bo'lsa va siz uning bir qismini o'zgartirsangiz,
+bu boshqa bog'liq modullarga qanday ta'sir qilishini tushunish qiyin bo'lishi mumkin
+sizning kod bazangiz.
 
 **Yomon:**
 
@@ -1664,12 +1664,12 @@ class UserSettings
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Open/Closed Principle (OCP)
+### Ochiq/yopiq printsip (OCP)
 
-As stated by Bertrand Meyer, "software entities (classes, modules, functions,
-etc.) should be open for extension, but closed for modification." What does that
-mean though? This principle basically states that you should allow users to
-add new functionalities without changing existing code.
+Bertran Meyer ta'kidlaganidek, "dasturiy ta'minot ob'ektlari (sinflar, modullar, funktsiyalar,
+va hokazo) kengaytirish uchun ochiq bo'lishi kerak, lekin o'zgartirish uchun yopiq bo'lishi kerak." Bu nima qiladi
+degani? Bu tamoyil asosan foydalanuvchilarga ruxsat berish kerakligini bildiradi
+mavjud kodni o'zgartirmasdan yangi funksiyalarni qo'shing.
 
 **Yomon:**
 
@@ -1726,12 +1726,12 @@ class HttpRequester
 
     private function makeAjaxCall(string $url): Promise
     {
-        // request and return promise
+        // so'rash va qaytarish va'dasi
     }
 
     private function makeHttpCall(string $url): Promise
     {
-        // request and return promise
+        // so'rash va qaytarish va'dasi
     }
 }
 ```
@@ -1748,7 +1748,7 @@ class AjaxAdapter implements Adapter
 {
     public function request(string $url): Promise
     {
-        // request and return promise
+        // so'rash va qaytarish va'dasi
     }
 }
 
@@ -1756,7 +1756,7 @@ class NodeAdapter implements Adapter
 {
     public function request(string $url): Promise
     {
-        // request and return promise
+        // so'rash va qaytarish va'dasi
     }
 }
 
@@ -1778,20 +1778,20 @@ class HttpRequester
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Liskov Substitution Principle (LSP)
+### Liskov almashtirish printsipi (LSP)
 
-This is a scary term for a very simple concept. It's formally defined as "If S
-is a subtype of T, then objects of type T may be replaced with objects of type S
-(i.e., objects of type S may substitute objects of type T) without altering any
-of the desirable properties of that program (correctness, task performed,
-etc.)." That's an even scarier definition.
+Bu juda oddiy tushuncha uchun qo'rqinchli atama. Bu rasmiy ravishda "Agar S
+T ning kichik turi bo'lsa, u holda T tipidagi ob'ektlar S tipidagi ob'ektlar bilan almashtirilishi mumkin
+(ya'ni, S tipidagi ob'ektlar T tipidagi ob'ektlarni almashtirishi mumkin) hech qanday o'zgarmasdan
+ushbu dasturning kerakli xususiyatlari (to'g'riligi, bajarilgan vazifa,
+va hokazo)." Bu yanada dahshatli ta'rif.
 
-The best explanation for this is if you have a parent class and a child class,
-then the base class and child class can be used interchangeably without getting
-incorrect results. This might still be confusing, so let's take a look at the
-classic Square-Rectangle example. Mathematically, a square is a rectangle, but
-if you model it using the "is-a" relationship via inheritance, you quickly
-get into trouble.
+Buning eng yaxshi tushuntirishi, agar sizda ota-onalar sinfi va bolalar sinfi bo'lsa,
+u holda asosiy sinf va bola sinfini olinmasdan bir-birining o'rnida ishlatish mumkin
+noto'g'ri natijalar. Bu hali ham chalkash bo'lishi mumkin, shuning uchun keling, buni ko'rib chiqaylik
+Klassik Kvadrat-To'rtburchak misoli. Matematik jihatdan kvadrat to'rtburchak, lekin
+Agar siz uni meros orqali "is-a" munosabatidan foydalanib model qilsangiz, siz tezda
+muammoga duch kelish.
 
 **Yomon:**
 
@@ -1849,11 +1849,11 @@ foreach ($rectangles as $rectangle) {
 
 **Yaxshi:**
 
-The best way is separate the quadrangles and allocation of a more general subtype for both shapes.
+Eng yaxshi usul - to'rtburchaklarni ajratish va ikkala shakl uchun umumiyroq kichik turni ajratish.
 
-Despite the apparent similarity of the square and the rectangle, they are different.
-A square has much in common with a rhombus, and a rectangle with a parallelogram, but they are not subtypes.
-A square, a rectangle, a rhombus and a parallelogram are separate shapes with their own properties, albeit similar.
+Kvadrat va to'rtburchakning ko'rinadigan o'xshashligiga qaramay, ular bir-biridan farq qiladi.
+Kvadrat romb va parallelogramm bilan to'rtburchaklar bilan juda ko'p umumiyliklarga ega, ammo ular kichik turlar emas.
+Kvadrat, to'rtburchak, romb va parallelogramm o'xshash bo'lsa-da, o'ziga xos xususiyatlarga ega bo'lgan alohida shakllardir.
 
 ```php
 interface Shape
@@ -1907,15 +1907,16 @@ foreach ($shapes as $shape) {
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Interface Segregation Principle (ISP)
+### Interfeysni ajratish printsipi (ISP)
 
-ISP states that "Clients should not be forced to depend upon interfaces that
-they do not use."
+ISPning ta'kidlashicha, "mijozlarni interfeyslarga bog'lanishga majburlamaslik kerak
+foydalanmaydilar."
 
-A good example to look at that demonstrates this principle is for
-classes that require large settings objects. Not requiring clients to set up
-huge amounts of options is beneficial, because most of the time they won't need
-all of the settings. Making them optional helps prevent having a "fat interface".
+Ko'rib chiqish uchun yaxshi misol bu tamoyilni ko'rsatadi
+katta sozlamalar ob'ektlarini talab qiladigan sinflar. Mijozlardan sozlashni talab qilmaydi
+katta hajmdagi variantlar foydalidir, chunki ko'pincha ularga kerak bo'lmaydi
+barcha sozlamalar. Ularni ixtiyoriy qilish "yog'li interfeys" ga ega bo'lishni oldini olishga yordam beradi.
+
 
 **Yomon:**
 
@@ -1956,7 +1957,7 @@ class RobotEmployee implements Employee
 
 **Yaxshi:**
 
-Not every worker is an employee, but every employee is a worker.
+Har bir ishchi xodim emas, lekin har bir xodim ishchi.
 
 ```php
 interface Workable
@@ -1998,20 +1999,20 @@ class RobotEmployee implements Workable
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-### Dependency Inversion Principle (DIP)
+### Bog'liqlik inversiyasi printsipi (DIP)
 
-This principle states two essential things:
-1. High-level modules should not depend on low-level modules. Both should
-depend on abstractions.
-2. Abstractions should not depend upon details. Details should depend on
-abstractions.
+Ushbu tamoyil ikkita muhim narsani belgilaydi:
+1. Yuqori darajadagi modullar past darajadagi modullarga bog'liq bo'lmasligi kerak. Ikkalasi ham kerak
+abstraksiyalarga bog‘liq.
+2. Abstraktsiyalar tafsilotlarga bog'liq bo'lmasligi kerak. Tafsilotlar quyidagilarga bog'liq bo'lishi kerak
+abstraktsiyalar.
 
-This can be hard to understand at first, but if you've worked with PHP frameworks (like Symfony), you've seen an implementation of this principle in the form of Dependency
-Injection (DI). While they are not identical concepts, DIP keeps high-level
-modules from knowing the details of its low-level modules and setting them up.
-It can accomplish this through DI. A huge benefit of this is that it reduces
-the coupling between modules. Coupling is a very bad development pattern because
-it makes your code hard to refactor.
+Avvaliga buni tushunish qiyin bo'lishi mumkin, lekin agar siz PHP ramkalari (masalan, Symfony) bilan ishlagan bo'lsangiz, bu tamoyilning qaramlik ko'rinishida amalga oshirilishini ko'rgansiz.
+In'ektsiya (DI). Ular bir xil tushunchalar bo'lmasa-da, DIP yuqori darajada saqlanadi
+modullari uning past darajadagi modullari tafsilotlarini bilish va ularni sozlash.
+Buni DI orqali amalga oshirishi mumkin. Buning katta foydasi shundaki, u kamayadi
+modullar orasidagi ulanish. Bog'lanish juda yomon rivojlanish namunasidir, chunki
+bu sizning kodingizni qayta ishlashni qiyinlashtiradi.
 
 **Yomon:**
 
