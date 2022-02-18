@@ -2091,30 +2091,30 @@ class Manager
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-## Don’t repeat yourself (DRY)
+## O'zingizni takrorlamang (QURUQ)
 
-Try to observe the [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle.
+[DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) tamoyiliga rioya qilishga harakat qiling.
 
-Do your absolute best to avoid duplicate code. Duplicate code is bad because
-it means that there's more than one place to alter something if you need to
-change some logic.
+Ikki nusxadagi kodni oldini olish uchun qo'lingizdan kelganini qiling. Ikki nusxadagi kod yomon, chunki
+Agar kerak bo'lsa, biror narsani o'zgartirish uchun bir nechta joy borligini anglatadi
+ba'zi mantiqni o'zgartiring.
 
-Imagine if you run a restaurant and you keep track of your inventory: all your
-tomatoes, onions, garlic, spices, etc. If you have multiple lists that
-you keep this on, then all have to be updated when you serve a dish with
-tomatoes in them. If you only have one list, there's only one place to update!
+Tasavvur qiling-a, agar siz restoran ishlasangiz va inventarizatsiyangizni kuzatib borsangiz: hammasi sizning
+pomidor, piyoz, sarimsoq, ziravorlar va boshqalar. Agar sizda bir nechta ro'yxat mavjud bo'lsa
+Buni davom ettirasiz, keyin taomga xizmat qilganingizda hammasi yangilanishi kerak
+ulardagi pomidor. Agar sizda faqat bitta ro'yxat bo'lsa, yangilanish uchun faqat bitta joy bor!
 
-Often you have duplicate code because you have two or more slightly
-different things, that share a lot in common, but their differences force you
-to have two or more separate functions that do much of the same things. Removing
-duplicate code means creating an abstraction that can handle this set of different
-things with just one function/module/class.
+Ko'pincha sizda ikki nusxadagi kod bor, chunki sizda ikkita yoki undan ko'p bir oz
+turli xil narsalar, ular juda ko'p umumiyliklarga ega, ammo ularning farqlari sizni majbur qiladi
+bir xil ishlarni bajaradigan ikki yoki undan ortiq alohida funktsiyalarga ega bo'lish. O'chirish
+dublikat kod bu turli xil to'plamlarni boshqara oladigan abstraktsiyani yaratishni anglatadi
+faqat bitta funktsiya/modul/sinfga ega narsalar.
 
-Getting the abstraction right is critical, that's why you should follow the
-SOLID principles laid out in the [Classes](#classes) section. Bad abstractions can be
-worse than duplicate code, so be careful! Having said this, if you can make
-a good abstraction, do it! Don't repeat yourself, otherwise you'll find yourself
-updating multiple places any time you want to change one thing.
+Abstraktsiyani to'g'ri qabul qilish juda muhim, shuning uchun siz amal qilishingiz kerak
+SOLID tamoyillari [Sinflar](#class) bo'limida keltirilgan. Yomon abstraktsiyalar bo'lishi mumkin
+Ikki nusxadagi koddan ham yomonroq, shuning uchun ehtiyot bo'ling! Buni aytib, agar qila olsangiz
+yaxshi abstraksiya, buni qiling! O'zingizni takrorlamang, aks holda siz o'zingizni topasiz
+bir narsani o'zgartirmoqchi bo'lgan har qanday vaqtda bir nechta joylarni yangilash.
 
 **Yomon:**
 
@@ -2175,9 +2175,9 @@ function showList(array $employees): void
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
 
-## Translations
+## Tarjimalar
 
-This is also available in other languages:
+Bu boshqa tillarda ham mavjud:
 
 * :cn: **Chinese:**
    * [php-cpm/clean-code-php](https://github.com/php-cpm/clean-code-php)
@@ -2206,5 +2206,9 @@ This is also available in other languages:
    * [ahmedjoda/clean-code-php](https://github.com/ahmedjoda/clean-code-php)
 * :jp: **Japanese:**
    * [hayato07/clean-code-php](https://github.com/hayato07/clean-code-php)
+* :uz: **Uzbekcha:**
+   * [AxlidinovJ/Clean-Code-PHP-uz](https://github.com/AxlidinovJ/Clean-Code-PHP-uz)
+
+
 
 **[⬆ Tepaga qaytish](#table-of-contents)**
